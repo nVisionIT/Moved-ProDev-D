@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProDev.WebAPIv2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,7 +13,7 @@ namespace ProDev.WebAPI.Controllers
         // GET api/email
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "You", "are", "not", "supposed", "to", "do", "a", "get", "to", "here" };
         }
 
         // GET api/email/5
@@ -22,14 +23,26 @@ namespace ProDev.WebAPI.Controllers
         }
 
         // POST api/email
-        public HttpResponseMessage Post([FromBody]string value)
+        public void Post([FromBody]EmailModel value)
         {
             //call next method to send email
-            //return value;
-            return new HttpResponseMessage()
-                {
-                    StatusCode = HttpStatusCode.OK
-                };
+            if (value != null)
+            {
+                System.Threading.Tasks.Task<string> bodyData = Request.Content.ReadAsStringAsync();
+                string test = Request.Content.ToString();
+
+                //return new HttpResponseMessage()
+                //    {
+                //        StatusCode = HttpStatusCode.OK
+                //    };
+            }
+            else
+            {
+                //return new HttpResponseMessage()
+                //{
+                //    StatusCode = HttpStatusCode.NoContent
+                //};
+            }
         }
 
         // PUT api/email/5
