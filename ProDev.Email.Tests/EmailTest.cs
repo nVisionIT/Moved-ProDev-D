@@ -9,7 +9,7 @@ namespace ProDev.Email.Tests
         [TestMethod]
         public void SendEmail()
         {
-            Email email = new Email() { To = "rehanav@nvisionit.co.za", Subject="Unit Test" };
+            Email email = new Email() { To = "rehanav@nvisionit.co.za", Subject = "Unit Test", DeliveryType ="Email", Message = "Test" };
 
             SendMail sendMail = new SendMail();
             Assert.IsTrue(sendMail.SendEmail(email));
