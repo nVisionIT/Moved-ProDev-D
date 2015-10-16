@@ -13,8 +13,10 @@ namespace ProDev.Email
 
         }
 
-        public bool SendEmail()
+        public bool SendEmail(Email email)
         {
+
+           // try()
             return true;
         }
 

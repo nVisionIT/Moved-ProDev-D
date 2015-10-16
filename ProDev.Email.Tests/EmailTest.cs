@@ -9,8 +9,11 @@ namespace ProDev.Email.Tests
         [TestMethod]
         public void SendEmail()
         {
-            Email.SendGrid sendGrid = new Email.SendGrid();
-            Assert.IsTrue(sendGrid.SendEmail());
+            Email email = new Email() { To = "rehanav@nvisionit.co.za", Subject="Unit Test" };
+
+            SendGrid sendGrid = new SendGrid();
+            Assert.IsTrue(sendGrid.SendEmail(email));
         }
+
     }
 }
