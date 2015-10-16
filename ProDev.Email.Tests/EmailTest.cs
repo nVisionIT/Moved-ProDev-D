@@ -11,8 +11,8 @@ namespace ProDev.Email.Tests
         {
             Email email = new Email() { To = "rehanav@nvisionit.co.za", Subject="Unit Test" };
 
-            SendGrid sendGrid = new SendGrid();
-            Assert.IsTrue(sendGrid.SendEmail(email));
+            SendMail sendMail = new SendMail();
+            Assert.IsTrue(sendMail.SendEmail(email));
         }
 
     }

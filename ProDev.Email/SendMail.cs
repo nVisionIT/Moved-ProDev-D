@@ -6,19 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProDev.Email
 {
-    public class SendGrid
+    public class SendMail
     {
-        public SendGrid()
-        {
-
-        }
 
         public bool SendEmail(Email email)
         {
 
-           // try()
+            // try()
             return true;
         }
-
     }
 }
