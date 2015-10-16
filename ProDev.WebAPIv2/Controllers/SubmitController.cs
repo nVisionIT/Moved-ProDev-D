@@ -22,10 +22,14 @@ namespace ProDev.WebAPI.Controllers
         }
 
         // POST api/email
-        public string Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]string value)
         {
             //call next method to send email
-            return value;
+            //return value;
+            return new HttpResponseMessage()
+                {
+                    StatusCode = HttpStatusCode.OK
+                };
         }
 
         // PUT api/email/5
