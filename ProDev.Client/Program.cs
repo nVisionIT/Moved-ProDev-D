@@ -24,24 +24,12 @@ namespace ProDev.Client
         {
             var baseAddress = "http://localhost/ProDev.WebAPIv2/api/submit";
 
-            HttpClient client = new HttpClient();
-            var nameValues = new Dictionary<string, string>();
-            nameValues.Add("Name", "hi");
-            var Name = new FormUrlEncodedContent(nameValues);
-            client.PostAsync(baseAddress, Name).ContinueWith(task =>
-            {
-                var responseNew = task.Result;
-                Console.WriteLine(responseNew.Content.ReadAsStringAsync().Result);
-            });
-
-            /*var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
-            http.Accept = "application/json";
+            var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
+            //http.Accept = "application/json";
             http.ContentType = "application/json";
             http.Method = "POST";
 
-            string parsedContent = "teststring";
-
-            //string json = "{\"To\": \"\", \"Subject\": \"\", \"Message\": \"\", \"DeliveryType\": \"\"}";
+            string parsedContent = "{\"To\": \"marct@nvisionit.co.za\", \"Subject\": \"Console test\", \"Message\": \"This is a test\", \"DeliveryType\": \"Email\"}";
 
             ASCIIEncoding encoding = new ASCIIEncoding();
             Byte[] bytes = encoding.GetBytes(parsedContent);
@@ -55,7 +43,7 @@ namespace ProDev.Client
             var stream = response.GetResponseStream();
             var sr = new StreamReader(stream);
             var content = sr.ReadToEnd();
-            Console.WriteLine("Received: {0}", content.ToString());*/
+            Console.WriteLine("Received: {0}", content.ToString());
 
         }
     }
