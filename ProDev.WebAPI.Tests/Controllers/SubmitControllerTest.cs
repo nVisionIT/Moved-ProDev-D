@@ -80,7 +80,7 @@ namespace ProDev.WebAPI.Tests.Controllers
             var sr = new StreamReader(stream);
             var content = sr.ReadToEnd();
 
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(content));
+            Assert.AreNotSame(null, content);
         }
 
         [TestMethod]
