@@ -8,9 +8,9 @@ namespace ProDev.Email.Tests
     {
         
         [TestMethod]
-        public void TestClass(Email email)
+        public void TestEmailClass()
         {
-             email = new Email() { To = "rehanav@nvisionit.co.za", Subject = "Unit Test", DeliveryType = "Email", Message = "Test" };
+            Email email = new Email() { To = "rehanav@nvisionit.co.za", Subject = "Unit Test", DeliveryType = "Email", Message = "Test" };
             Assert.IsNotNull(email.To);
             Assert.IsNotNull(email.Subject);
 
