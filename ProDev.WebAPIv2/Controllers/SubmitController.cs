@@ -1,5 +1,4 @@
-﻿using ProDev.WebAPIv2.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -23,25 +22,13 @@ namespace ProDev.WebAPI.Controllers
         }
 
         // POST api/email
-        public void Post([FromBody]EmailModel value)
+        public void Post([FromBody]Email.Email value)
         {
             //call next method to send email
             if (value != null)
             {
-                System.Threading.Tasks.Task<string> bodyData = Request.Content.ReadAsStringAsync();
-                string test = Request.Content.ToString();
-
-                //return new HttpResponseMessage()
-                //    {
-                //        StatusCode = HttpStatusCode.OK
-                //    };
-            }
-            else
-            {
-                //return new HttpResponseMessage()
-                //{
-                //    StatusCode = HttpStatusCode.NoContent
-                //};
+                Email.SendMail sendMail = new Email.SendMail();
+                sendMail.SendEmail(value);
             }
         }
 

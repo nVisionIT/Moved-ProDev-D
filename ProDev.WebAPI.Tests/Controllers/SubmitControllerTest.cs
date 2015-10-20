@@ -15,47 +15,39 @@ namespace ProDev.WebAPI.Tests.Controllers
     [TestClass]
     public class SubmitControllerTest
     {
-        [TestMethod]
-        public void Get()
-        {
-            /*// Arrange
-            SubmitController controller = new SubmitController();
+        //[TestMethod]
+        //public void Get()
+        //{
+        //    /*// Arrange
+        //    SubmitController controller = new SubmitController();
 
-            // Act
-            IEnumerable<string> result = controller.Get();
+        //    // Act
+        //    IEnumerable<string> result = controller.Get();
 
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count());
-            Assert.AreEqual("value1", result.ElementAt(0));
-            Assert.AreEqual("value2", result.ElementAt(1));*/
+        //    // Assert
+        //    Assert.IsNotNull(result);
+        //    Assert.AreEqual(2, result.Count());
+        //    Assert.AreEqual("value1", result.ElementAt(0));
+        //    Assert.AreEqual("value2", result.ElementAt(1));*/
 
-        }
+        //}
 
-        [TestMethod]
-        public void GetById()
-        {
-            /*// Arrange
-            SubmitController controller = new SubmitController();
+        //[TestMethod]
+        //public void GetById()
+        //{
+        //    /*// Arrange
+        //    SubmitController controller = new SubmitController();
 
-            // Act
-            string result = controller.Get(5);
+        //    // Act
+        //    string result = controller.Get(5);
 
-            // Assert
-            Assert.AreEqual("value", result);*/
-        }
+        //    // Assert
+        //    Assert.AreEqual("value", result);*/
+        //}
 
         [TestMethod]
         public void Post()
         {
-            /*// Arrange
-            SubmitController controller = new SubmitController();
-
-            // Act
-            controller.Post("value");
-
-            // Assert*/
-
             var baseAddress = "http://localhost/ProDev.WebAPIv2/api/submit";
 
             var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
@@ -63,9 +55,7 @@ namespace ProDev.WebAPI.Tests.Controllers
             http.ContentType = "application/json";
             http.Method = "POST";
 
-            string parsedContent = "teststring";
-
-            //string json = "{\"To\": \"\", \"Subject\": \"\", \"Message\": \"\", \"DeliveryType\": \"\"}";
+            string parsedContent = "{\"To\": \"\", \"Subject\": \"\", \"Message\": \"\", \"DeliveryType\": \"\"}";
 
             ASCIIEncoding encoding = new ASCIIEncoding();
             Byte[] bytes = encoding.GetBytes(parsedContent);
@@ -83,28 +73,28 @@ namespace ProDev.WebAPI.Tests.Controllers
             Assert.AreNotSame(null, content);
         }
 
-        [TestMethod]
-        public void Put()
-        {
-            /*// Arrange
-            SubmitController controller = new SubmitController();
+        //[TestMethod]
+        //public void Put()
+        //{
+        //    /*// Arrange
+        //    SubmitController controller = new SubmitController();
 
-            // Act
-            controller.Put(5, "value");
+        //    // Act
+        //    controller.Put(5, "value");
 
-            // Assert*/
-        }
+        //    // Assert*/
+        //}
 
-        [TestMethod]
-        public void Delete()
-        {
-            /*// Arrange
-            SubmitController controller = new SubmitController();
+        //[TestMethod]
+        //public void Delete()
+        //{
+        //    /*// Arrange
+        //    SubmitController controller = new SubmitController();
 
-            // Act
-            controller.Delete(5);
+        //    // Act
+        //    controller.Delete(5);
 
-            // Assert*/
-        }
+        //    // Assert*/
+        //}
     }
 }
