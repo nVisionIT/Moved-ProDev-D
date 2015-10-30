@@ -1,10 +1,77 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Postman Pat</title>
 	<meta charset="utf-8" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 12px;
+            padding: 100px;
+            background-color: lightgray;
+        }
+
+        div {
+            padding: 0px 0px 10px 0px;
+        }
+
+        input[type=text] {
+            width: 300px;
+        }
+
+        input[type=button] {
+            width: 100px;
+        }
+    </style>
 </head>
 <body>
-    There once was a man from Nantucket...
+
+    <h1>Postman Pat</h1>
+
+    <div>To</div>
+    <div>
+        <input type="text" id="txtTo" />
+    </div>
+
+    <div>Subject</div>
+    <div>
+        <input type="text" id="txtSubject" />
+    </div>
+
+    <div>Message</div>
+    <div>
+        <input type="text" id="txtMessage" />
+    </div>
+    
+    <div>
+        <input type="button" id="btnSubmit" value="Submit" />
+    </div>
+    
+    <div id="output"></div>
+    
+    <script>
+        $('#btnSubmit').click(function () {
+
+            var jsonData = JSON.stringify('{"To": "' + $('#txtTo').val() + '", "Subject": "' + $('#txtSubject').val() + '", "Message": "' + $('#txtMessage').val() + '", "DeliveryType": "Email"}');
+
+            $.ajax({
+                type: "POST",
+                url: "http://prodev-teamd.azurewebsites.net/api/submit",
+                data: jsonData,
+                contentType: 'text/json',
+                async: false,
+                dataType: 'json',
+                success: function (response) {
+                    $('#output').html('Your message has been sent!');
+                },
+                error: function (jqXHR, status) {
+                    $('#output').html('An error has occurred: ' + jqXHR.statusText);
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
