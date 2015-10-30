@@ -68,7 +68,7 @@ namespace ProDev.WebAPI.Controllers
         {
         }
 
-        private HttpResponseMessage ValidateModel(Email.Email model)
+        public HttpResponseMessage ValidateModel(Email.Email model)
         {
             var response = new HttpResponseMessage();
             if (!model.DeliveryType.Trim().ToLower().Equals("email"))
