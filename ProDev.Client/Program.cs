@@ -22,7 +22,7 @@ namespace ProDev.Client
 
         static void SendMessage()
         {
-            var baseAddress = "http://localhost/ProDev.WebAPIv2/api/submit";
+            var baseAddress = "http://marct-w8-dt/ProDev.WebAPIv2/api/submit";
 
             var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
             //http.Accept = "application/json";
