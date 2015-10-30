@@ -48,30 +48,18 @@ namespace ProDev.WebAPI.Tests.Controllers
         [TestMethod]
         public void Post()
         {
-            /*var baseAddress = "http://localhost/ProDev.WebAPIv2/api/submit";
+            SubmitController submit = new SubmitController();
+            var response = submit.Post(
+                    new Email.Email()
+                    {
+                        DeliveryType = "Email",
+                        Message = "Unit Testing Successful",
+                        Subject = "Unit Test",
+                        To = "marct@nvisionit.co.za"
+                    }
+                );
 
-            var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
-            http.Accept = "application/json";
-            http.ContentType = "application/json";
-            http.Method = "POST";
-
-            string parsedContent = "{\"To\": \"\", \"Subject\": \"\", \"Message\": \"\", \"DeliveryType\": \"\"}";
-
-            ASCIIEncoding encoding = new ASCIIEncoding();
-            Byte[] bytes = encoding.GetBytes(parsedContent);
-
-            Stream newStream = http.GetRequestStream();
-            newStream.Write(bytes, 0, bytes.Length);
-            newStream.Close();
-
-            var response = http.GetResponse();
-
-            var stream = response.GetResponseStream();
-            var sr = new StreamReader(stream);
-            var content = sr.ReadToEnd();*/
-
-            //Assert.AreNotSame(null, content);
-            Assert.IsTrue(true);
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
 
         //[TestMethod]

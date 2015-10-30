@@ -104,6 +104,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProDev.Email\ProDev.Email.csproj">
+      <Project>{4fe03ba1-df2f-4b13-90f6-db21162fae45}</Project>
+      <Name>ProDev.Email</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProDev.WebAPIv2\ProDev.WebAPIv2.csproj">
       <Project>{edb0ab5d-e727-4049-9bdc-29ad723cc117}</Project>
       <Name>ProDev.WebAPIv2</Name>
