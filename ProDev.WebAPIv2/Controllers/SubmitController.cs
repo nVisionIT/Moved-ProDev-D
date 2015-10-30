@@ -75,6 +75,7 @@ namespace ProDev.WebAPI.Controllers
             {
                 response.StatusCode = HttpStatusCode.NotImplemented;
                 response.ReasonPhrase = string.Format("The DeliveryType [{0}] is not implemented.", model.DeliveryType);
+                Elmah.ErrorLog.GetDefault(HttpContext.Current).Log(new Elmah.Error(new Exception(string.Format("The DeliveryType [{0}] is not implemented.", model.DeliveryType))));
             }
 
             if (string.IsNullOrWhiteSpace(model.To))
