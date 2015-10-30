@@ -54,20 +54,21 @@
     <script>
         $('#btnSubmit').click(function () {
 
-            var jsonData = JSON.stringify('{"To": "' + $('#txtTo').val() + '", "Subject": "' + $('#txtSubject').val() + '", "Message": "' + $('#txtMessage').val() + '", "DeliveryType": "Email"}');
+            var jsonData = '{"To": "' + $('#txtTo').val() + '", "Subject": "' + $('#txtSubject').val() + '", "Message": "' + $('#txtMessage').val() + '", "DeliveryType": "Email"}';
 
             $.ajax({
                 type: "POST",
-                url: "http://prodev-teamd.azurewebsites.net/api/submit",
+                //url: "http://prodev-teamd.azurewebsites.net/api/submit",
+                url: 'http://localhost/ProDev.WebAPIv2/api/submit',
                 data: jsonData,
-                contentType: 'text/json',
+                contentType: "application/json; charset=utf-8",
                 async: false,
                 dataType: 'json',
                 success: function (response) {
                     $('#output').html('Your message has been sent!');
                 },
                 error: function (jqXHR, status) {
-                    $('#output').html('An error has occurred: ' + jqXHR.statusText);
+                    $('#output').html(jqXHR.statusText);
                 }
             });
         });
