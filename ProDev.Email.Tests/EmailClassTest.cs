@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProDev.WebAPI.Controllers;
+using System.Net.Http;
 
 namespace ProDev.Email.Tests
 {
@@ -22,23 +23,26 @@ namespace ProDev.Email.Tests
             
         }
 
-        //[TestMethod]
-        //public void TestEmailValidation()
-        //{
-        //    Email email = new Email() { To = "rehanav@@nvisionit.co.za", Subject = "Unit Test", DeliveryType = "Email", Message = "Test" };
+        [TestMethod]
+        public void TestEmailValidation()
+        {
+            Email email = new Email() { To = "rehanav@@nvisionit.co.za", Subject = "Unit Test", DeliveryType = "Email", Message = "Test" };
 
-        //    SubmitController controller = new SubmitController();
-            
-        //    Assert.IsTrue();
-       //}
+            SubmitController controller = new SubmitController();
+            HttpResponseMessage message = controller.ValidateModel(email);
+
+            Assert.IsTrue(message.StatusCode == System.Net.HttpStatusCode.BadRequest);
+        }
 
         [TestMethod]
         public void TestSubject()
         {
             Email email = new Email() { To = "rehanav@@nvisionit.co.za", Subject = "", DeliveryType = "Email", Message = "Test" };
 
-            SendMail sendMail = new SendMail();
-            Assert.IsTrue(sendMail.SendEmail(email));
+            SubmitController controller = new SubmitController();
+            HttpResponseMessage message = controller.ValidateModel(email);
+
+            Assert.IsTrue(message.StatusCode == System.Net.HttpStatusCode.BadRequest);
 
         }
 
