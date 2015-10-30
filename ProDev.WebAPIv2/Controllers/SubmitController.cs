@@ -32,14 +32,17 @@ namespace ProDev.WebAPI.Controllers
             if (model != null)
             {
                 Email.SendMail sendMail = new Email.SendMail();
+
+                //validate json data/model and return response
                 var modelValidated = ValidateModel(model);
-                //check if the delivery type is email, otherwise return 501
                 if (modelValidated.StatusCode != HttpStatusCode.OK)
                 {
+                    //validation failed
                     response = modelValidated;
                 }
                 else
                 {
+                    //validation passed
                     if (sendMail.SendEmail(model))
                     {
                         response.StatusCode = HttpStatusCode.OK;
